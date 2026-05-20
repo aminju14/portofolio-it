@@ -178,7 +178,7 @@ export default function Contact() {
                     (e.currentTarget as HTMLElement).style.boxShadow = "none";
                   }}
                 >
-                  <Icon size={18} />
+                  <Icon />
                 </a>
               );
             })}

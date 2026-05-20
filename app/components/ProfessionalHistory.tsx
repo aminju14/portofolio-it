@@ -192,6 +192,11 @@ export default function ProfessionalHistory() {
       </div>
 
       <style jsx>{`
+        @media (max-width: 1024px) {
+          .history-grid {
+            gap: 32px !important;
+          }
+        }
         @media (max-width: 900px) {
           .history-grid {
             grid-template-columns: 1fr !important;

@@ -252,9 +252,13 @@ export default function ProjectHighlight() {
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
           .featured-card { grid-template-columns: 1fr !important; }
-          .featured-card > div:first-child { min-height: 200px !important; }
+          .featured-card > div:first-child { min-height: 220px !important; }
+          .secondary-grid { grid-template-columns: 1fr 1fr !important; }
+        }
+        @media (max-width: 640px) {
+          .featured-card > div:first-child { min-height: 180px !important; }
           .secondary-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>

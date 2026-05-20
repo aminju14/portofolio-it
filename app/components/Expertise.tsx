@@ -107,7 +107,10 @@ export default function Expertise() {
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
+          .expertise-grid { grid-template-columns: 1fr 1fr !important; }
+        }
+        @media (max-width: 640px) {
           .expertise-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>

@@ -32,13 +32,13 @@ export const metadata: Metadata = {
     "Team Lead",
   ],
   authors: [{ name: "Muhammad Amin" }],
-  metadataBase: new URL("https://portofolio-it.vercel.app"),
+  metadataBase: new URL("https://aminju.vercel.app"),
   openGraph: {
     title: "Muhammad Amin — Software Engineer & AI System Architect",
     description:
       "9+ years of engineering experience — from Android apps to enterprise microservices and AI systems. Available for new opportunities.",
     type: "website",
-    url: "https://portofolio-it.vercel.app",
+    url: "https://aminju.vercel.app",
     images: [
       {
         url: "/images/profile.png",

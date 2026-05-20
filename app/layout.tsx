@@ -59,6 +59,7 @@ export const metadata: Metadata = {
 
 import { LanguageProvider } from "./context/LanguageContext";
 import BackToTop from "./components/BackToTop";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function RootLayout({
   children,
@@ -72,6 +73,7 @@ export default function RootLayout({
           </main>
           <BackToTop />
         </LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );

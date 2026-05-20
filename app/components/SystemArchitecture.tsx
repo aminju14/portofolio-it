@@ -58,7 +58,6 @@ export default function SystemArchitecture() {
           {architectureItems.map((item) => (
             <div
               key={item.title}
-              className="card"
               style={{
                 display: "flex",
                 flexDirection: "column",

@@ -68,23 +68,69 @@ export default function ProjectsPage() {
                 key={project.id} 
                 className="card grid grid-cols-1 md:grid-cols-[300px_1fr] gap-6 md:gap-8 p-5 md:p-8" 
               >
-                {/* Image Placeholder */}
+                {/* Thumbnail */}
                 <div style={{ 
-                  background: "rgba(2, 11, 24, 0.5)", 
+                  background: "#0a1628",
                   borderRadius: "12px", 
-                  border: "1px solid rgba(59, 130, 246, 0.1)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
+                  border: "1px solid rgba(59, 130, 246, 0.15)",
                   overflow: "hidden",
-                  position: "relative"
+                  position: "relative",
+                  minHeight: "200px",
                 }}>
-                   <img 
-                    src={project.image} 
+                  {/* Dark overlay agar gambar light bg tidak mencolok */}
+                  <div style={{
+                    position: "absolute",
+                    inset: 0,
+                    background: "linear-gradient(135deg, rgba(10,22,40,0.45) 0%, rgba(10,22,40,0.15) 50%, rgba(10,22,40,0.55) 100%)",
+                    zIndex: 1,
+                    pointerEvents: "none"
+                  }} />
+                  {/* Bottom gradient fade */}
+                  <div style={{
+                    position: "absolute",
+                    bottom: 0, left: 0, right: 0,
+                    height: "60px",
+                    background: "linear-gradient(transparent, rgba(10,22,40,0.7))",
+                    zIndex: 2,
+                    pointerEvents: "none"
+                  }} />
+                  <img 
+                    src={project.thumbnail ?? project.image} 
                     alt={content.title} 
-                    style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.8 }}
+                    style={{ 
+                      width: "100%", 
+                      height: "100%", 
+                      objectFit: "cover",
+                      objectPosition: "center top",
+                      display: "block",
+                      transition: "transform 0.4s ease",
+                    }}
+                    onError={e => { 
+                      e.currentTarget.onerror = null; // cegah infinite loop
+                      e.currentTarget.src = project.image; 
+                    }}
+                    onMouseEnter={e => (e.currentTarget.style.transform = "scale(1.05)")}
+                    onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}
                   />
-                  {/* <div style={{ position: "absolute", fontSize: "2rem" }}>{project.icon}</div> */}
+                  {/* Category badge */}
+                  <span style={{
+                    position: "absolute",
+                    top: "12px",
+                    left: "12px",
+                    zIndex: 3,
+                    fontSize: "0.7rem",
+                    fontWeight: 700,
+                    textTransform: "uppercase",
+                    letterSpacing: "1px",
+                    padding: "4px 10px",
+                    borderRadius: "20px",
+                    background: "rgba(10,22,40,0.75)",
+                    border: "1px solid rgba(59,130,246,0.3)",
+                    color: "#93c5fd",
+                    backdropFilter: "blur(6px)",
+                  }}>
+                    {project.category}
+                  </span>
                 </div>
 
                 {/* Content */}

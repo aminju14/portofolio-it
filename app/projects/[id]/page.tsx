@@ -226,18 +226,60 @@ export default function ProjectDetailPage() {
                      <RestuqueDemo />
                    </div>
                  ) : (
-                   <div style={{ 
-                     aspectRatio: "1/1", 
-                     borderRadius: "12px", 
-                     background: "rgba(0,0,0,0.3)", 
-                     display: "flex", 
-                     alignItems: "center", 
-                     justifyContent: "center",
-                     overflow: "hidden",
-                     border: "1px solid var(--border-blue)"
-                   }}>
-                     <img src={project.image} alt="Preview" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                   </div>
+                   <>
+                     <div style={{ 
+                       aspectRatio: "1/1", 
+                       borderRadius: "12px", 
+                       background: "rgba(0,0,0,0.3)", 
+                       display: "flex", 
+                       alignItems: "center", 
+                       justifyContent: "center",
+                       overflow: "hidden",
+                       border: "1px solid var(--border-blue)"
+                     }}>
+                       <img src={project.image} alt="Preview" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                     </div>
+                     {project.demoUrl && (
+                       <a 
+                         href={project.demoUrl} 
+                         target="_blank" 
+                         rel="noopener noreferrer"
+                         className="btn-primary"
+                         style={{ 
+                           width: "100%", 
+                           justifyContent: "center", 
+                           display: "flex", 
+                           gap: "10px", 
+                           alignItems: "center",
+                           marginTop: "16px",
+                           background: "linear-gradient(135deg, #6366f1, #a855f7)",
+                           border: "none",
+                           padding: "14px 20px",
+                           borderRadius: "12px",
+                           fontSize: "0.95rem",
+                           fontWeight: 600,
+                           color: "white",
+                           textDecoration: "none",
+                           cursor: "pointer",
+                           transition: "all 0.3s ease",
+                           boxShadow: "0 4px 15px rgba(99, 102, 241, 0.3)"
+                         }}
+                         onMouseEnter={(e) => { 
+                           e.currentTarget.style.boxShadow = "0 6px 25px rgba(99, 102, 241, 0.5)"; 
+                           e.currentTarget.style.transform = "translateY(-2px)"; 
+                         }}
+                         onMouseLeave={(e) => { 
+                           e.currentTarget.style.boxShadow = "0 4px 15px rgba(99, 102, 241, 0.3)"; 
+                           e.currentTarget.style.transform = "translateY(0)"; 
+                         }}
+                       >
+                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                           <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                         </svg>
+                         {language === "en" ? "View App Animation" : "Lihat Animasi Aplikasi"}
+                       </a>
+                     )}
+                   </>
                  )}
                  {project.id === "restuque" && (
                    <div style={{ textAlign: "center", fontSize: "0.75rem", color: "#94a3b8", marginTop: "8px" }}>

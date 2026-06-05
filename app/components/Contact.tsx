@@ -154,6 +154,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={s.name}
+                  aria-label={s.name}
                   style={{
                     width: 44,
                     height: 44,

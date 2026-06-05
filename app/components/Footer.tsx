@@ -101,6 +101,8 @@ export default function Footer() {
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
+              title={social.name}
+              aria-label={social.name}
               style={{
                 width: 40,
                 height: 40,

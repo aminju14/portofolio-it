@@ -16,7 +16,7 @@ doc.fontSize(28).fillColor(primaryColor).text('MUHAMMAD AMIN', { align: 'center'
 doc.fontSize(14).fillColor(secondaryColor).text('Senior Software Engineer & System Architect', { align: 'center' });
 doc.moveDown(0.5);
 
-doc.fontSize(10).fillColor(lightText).text('Jakarta, Indonesia | muhammad.amin1406@gmail.com | linkedin.com/in/aminju | github.com/aminju14', { align: 'center' });
+doc.fontSize(10).fillColor(lightText).text('Jakarta, Indonesia | amin.workspace2026@gmail.com | linkedin.com/in/aminju | github.com/aminju14', { align: 'center' });
 doc.moveDown(1.5);
 
 // Divider

@@ -73,5 +73,5 @@ metadataBase: new URL("https://your-vercel-url.vercel.app"),
 
 ## Contact
 
-- Email: amin.muhammad0614@gmail.com
+- Email: amin.workspace2026@gmail.com
 - LinkedIn: [linkedin.com/in/aminju](https://linkedin.com/in/aminju)

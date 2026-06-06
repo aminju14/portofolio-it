@@ -95,7 +95,7 @@ export const projects: Project[] = [
   },
   {
     id: "restuque",
-    category: "Enterprise System",
+    category: "Mobile Apps",
     tags: ["React Native", "Node.js", "Next.js", "RabbitMQ", "PostgreSQL", "Laravel"],
     icon: "💼",
     image: "/images/restuque-mockup-dark.png",
@@ -105,7 +105,7 @@ export const projects: Project[] = [
     appStoreUrl: "https://apps.apple.com/id/app/restuque/id1561895835",
     locales: {
       en: {
-        title: "Restuque Mobile Approval System",
+        title: "Restuque - Mobile Approval Portal Apps",
         description: "A highly-scalable, event-driven mobile approval gateway integrating fragmented enterprise legacy systems into a unified real-time portal.",
         fullDescription: "Restuque serves as a centralized mobile orchestration layer engineered to unify disjointed corporate approval workflows. Built to replace fragmented legacy interfaces, the application exposes a unified presentation layer that standardizes transaction states across various departments. It incorporates a resilient background push-notification pipeline that delivers sub-second transaction dispatching, empowering executives with frictionless, real-time oversight over high-stakes operational bottlenecks.",
         challenges: "Orchestrating concurrent, bi-directional data synchronization between modern mobile clients and deeply entrenched legacy monoliths (Laravel). The core engineering friction lay in mitigating high-latency bottlenecks and preventing race conditions during peak enterprise traffic without refactoring the underlying legacy databases.",
@@ -125,7 +125,7 @@ export const projects: Project[] = [
         }
       },
       id: {
-        title: "Restuque Mobile Approval System",
+        title: "Restuque - Mobile Approval Portal Apps",
         description: "Gateway persetujuan seluler berbasis event-driven architecture yang mengintegrasikan berbagai sistem legacy enterprise ke dalam satu portal terpusat secara real-time.",
         fullDescription: "Restuque dirancang sebagai orchestration layer seluler terpusat untuk mengonsolidasikan alur kerja administrasi korporat yang terfragmentasi. Membangun lapisan presentasi tingkat tinggi (unified presentation layer), aplikasi ini menstandarisasi state transaksi di berbagai departemen. Infrastrukturnya ditopang oleh pipeline push-notification berlatensi rendah, memungkinkan eksekutif mengeksekusi operasi kritikal dan menghilangkan operasional bottleneck secara real-time tanpa delay.",
         challenges: "Mengorkestrasi sinkronisasi data dua arah secara kongkuren antara klien mobile modern dengan arsitektur monolitik legacy internal (Laravel). Hambatan rekayasa tersulit adalah memitigasi bottleneck latensi dan mencegah race conditions saat traffic persetujuan memuncak, tanpa harus memodifikasi struktur skema database legacy.",
@@ -147,108 +147,56 @@ export const projects: Project[] = [
     }
   },
   {
-    id: "ai-assistant",
-    category: "AI Systems",
-    tags: ["React", "Node.js", "PostgreSQL", "Python NLP", "OpenAI"],
-    icon: "🤖",
-    image: "/images/ai-chat.png",
-    thumbnail: "/images/thumbnails/ai-assistant.png",
-    locales: {
-      en: {
-        title: "AI Assistant Chat System",
-        description: "Developed an AI-powered internal knowledge assistant that leverages NLP and large language models (LLMs) to provide quick and accurate answers to employee queries.",
-        fullDescription: "A comprehensive AI-driven chat platform designed to streamline internal communication and knowledge retrieval. The system integrates multiple LLM providers and uses vector databases for efficient semantic search across company documentation.",
-        challenges: "Handling high volumes of concurrent chat requests while maintaining low latency and ensuring the AI's responses were grounded in company-specific data without Hallucinations.",
-        solutions: "Implemented a RAG (Retrieval-Augmented Generation) pipeline using a vector database for semantic search and a robust caching layer to reduce redundant LLM calls.",
-        impact: "Reduced employee internal support tickets by 45% and improved knowledge retrieval speed by 80% across the organization."
-      },
-      id: {
-        title: "Sistem Chat Asisten AI",
-        description: "Mengembangkan asisten pengetahuan internal berbasis AI yang memanfaatkan NLP dan large language models (LLMs) untuk memberikan jawaban cepat dan akurat atas pertanyaan karyawan.",
-        fullDescription: "Platform chat berbasis AI komprehensif yang dirancang untuk merampingkan komunikasi internal dan pengambilan pengetahuan. Sistem ini mengintegrasikan berbagai penyedia LLM dan menggunakan database vektor untuk pencarian semantik yang efisien di seluruh dokumentasi perusahaan.",
-        challenges: "Menangani volume permintaan chat yang tinggi secara bersamaan sambil tetap menjaga latensi rendah dan memastikan respons AI didasarkan pada data spesifik perusahaan tanpa ada halusinasi (data palsu).",
-        solutions: "Mengimplementasikan pipeline RAG (Retrieval-Augmented Generation) menggunakan database vektor untuk pencarian semantik dan lapisan caching yang kuat untuk mengurangi panggilan LLM yang redundan.",
-        impact: "Mengurangi tiket dukungan internal karyawan sebesar 45% dan meningkatkan kecepatan pengambilan pengetahuan sebesar 80% di seluruh organisasi."
-      }
-    }
-  },
-  {
-    id: "task-manager",
+    id: "wplan",
     category: "Mobile Apps",
-    tags: ["React Native", "Firebase", "Redux", "Push Notifications"],
-    icon: "📱",
-    image: "/images/task-manager.png",
-    thumbnail: "/images/thumbnails/task-manager.png",
-    playStoreUrl: "https://play.google.com/store/apps/details?id=com.example.taskmanager",
-    appStoreUrl: "https://apps.apple.com/app/task-manager-example/id123456789",
+    tags: ["React Native", "JavaScript", "Dio", "Hive", "SharedPreferences", "FlutterSecureStorage"],
+    icon: "📅",
+    image: "/images/thumbnails/wplan.png",
+    thumbnail: "/images/thumbnails/wplan.png",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.wplan&hl=en",
     locales: {
       en: {
-        title: "Task Management Mobile App",
-        description: "Designed and developed a cross-platform task management app using React Native, offering real-time updates, notifications, and offline support.",
-        fullDescription: "A high-performance task management solution built for productivity. It features a modern, intuitive interface with real-time sync capabilities, allowing teams to collaborate seamlessly across different devices.",
-        challenges: "Developing a robust offline-first architecture that handles data synchronization conflicts gracefully when users regain internet connectivity.",
-        solutions: "Leveraged Firebase's offline persistence and implemented a custom optimistic UI strategy to ensure a lag-free experience even on unstable networks.",
-        impact: "Achieved a 4.8-star rating on the App Store within the first three months of launch, with over 10,000 active daily users."
+        title: "Wplan - Platform Perencanaan Harian",
+        description: "An integrated planning system designed to facilitate daily planning activities, material requests, and manpower needs based on monthly planning — connecting seamlessly with other enterprise applications like GudangKu.",
+        fullDescription: "WPLAN is an integrated planning system designed to facilitate daily planning activities, material requests, and manpower needs based on monthly planning. The application connects with other applications like GudangKu, offering a user-friendly interface to manage various aspects of planning. Utilizing JavaScript as the primary language and a modular architecture, the application provides flexibility and ease of development and maintenance.",
+        challenges: "Building a comprehensive planning interface that meets the needs of various roles within a single coherent codebase. The core challenge lies in developing a scalable architecture, maintaining strict separation between data, domain, and presentation layers while sharing reusable design tokens and widget libraries without being tied to a specific backend, ensuring the application remains integrable with various APIs.",
+        solutions: "Adopting a clean modular architecture with clear separation between features such as authentication, booking, and user management. Each module has its own data, domain, and presentation layers, while a shared module provides reusable entities and models. Dio-based networking infrastructure and local storage wrappers (SharedPreferences, FlutterSecureStorage, Hive) ensure the application can function without a backend, allowing developers to focus on business logic.",
+        impact: "Reduced UI development time by 3-4 months by providing a production-ready Flutter template that includes various features and a cohesive design system. Development teams can skip the scaffolding phase and focus directly on business logic, accelerating time-to-market for planning platforms by up to 70% while ensuring high code quality through clean architecture patterns."
       },
       id: {
-        title: "Aplikasi Mobile Manajemen Tugas",
-        description: "Merancang dan mengembangkan aplikasi manajemen tugas lintas platform menggunakan React Native, menawarkan pembaruan waktu nyata, notifikasi, dan dukungan offline.",
-        fullDescription: "Solusi manajemen tugas berkinerja tinggi yang dibangun untuk produktivitas. Menampilkan antarmuka modern dan intuitif dengan kemampuan sinkronisasi waktu nyata, memungkinkan tim berkolaborasi dengan lancar di berbagai perangkat.",
-        challenges: "Mengembangkan arsitektur offline-first yang kuat yang menangani konflik sinkronisasi data dengan anggun saat pengguna mendapatkan kembali konektivitas internet.",
-        solutions: "Memanfaatkan persistensi offline Firebase dan menerapkan strategi UI optimistik kustom untuk memastikan pengalaman tanpa lag bahkan pada jaringan yang tidak stabil.",
-        impact: "Meraih peringkat bintang 4,8 di App Store dalam tiga bulan pertama peluncuran, dengan lebih dari 10.000 pengguna aktif harian."
+        title: "Wplan - Platform Perencanaan Harian",
+        description: "Sistem perencanaan terintegrasi yang dirancang untuk memfasilitasi aktivitas perencanaan harian, permintaan material, dan kebutuhan tenaga kerja berdasarkan perencanaan bulanan — terhubung dengan aplikasi enterprise lain seperti GudangKu.",
+        fullDescription: "WPLAN adalah sistem perencanaan terintegrasi yang dirancang untuk memfasilitasi aktivitas perencanaan harian, permintaan material, dan kebutuhan tenaga kerja berdasarkan perencanaan bulanan. Aplikasi ini terhubung dengan aplikasi lain seperti GudangKu, menawarkan antarmuka yang ramah pengguna untuk mengelola berbagai aspek perencanaan. Dengan menggunakan JavaScript sebagai bahasa utama dan arsitektur modular, aplikasi ini memberikan fleksibilitas dan kemudahan dalam pengembangan serta pemeliharaan.",
+        challenges: "Membangun antarmuka perencanaan yang komprehensif yang memenuhi kebutuhan berbagai peran dalam satu basis kode yang koheren. Tantangan utama terletak pada pengembangan arsitektur yang dapat diskalakan, dengan pemisahan yang ketat antara lapisan data, domain, dan presentasi, sambil tetap berbagi token desain yang dapat digunakan kembali dan pustaka widget tanpa terikat pada backend tertentu, memastikan aplikasi tetap dapat diintegrasikan dengan berbagai API.",
+        solutions: "Mengadopsi arsitektur modular yang bersih dengan pemisahan yang jelas antara fitur-fitur seperti otentikasi, pemesanan, dan pengelolaan pengguna. Setiap modul memiliki lapisan data, domain, dan presentasi sendiri, sementara modul bersama menyediakan entitas dan model yang dapat digunakan kembali. Infrastruktur jaringan berbasis Dio dan sistem penyimpanan lokal (SharedPreferences, FlutterSecureStorage, Hive) memastikan aplikasi dapat berfungsi tanpa backend, memungkinkan pengembang untuk fokus pada logika bisnis.",
+        impact: "Mengurangi waktu pengembangan UI hingga 3-4 bulan dengan menyediakan template Flutter siap produksi yang mencakup berbagai fitur dan sistem desain yang kohesif. Tim pengembangan dapat melewati tahap scaffolding dan langsung fokus pada logika bisnis, mempercepat waktu peluncuran platform perencanaan hingga 70% sambil memastikan kualitas kode yang tinggi melalui pola arsitektur yang bersih."
       }
     }
   },
   {
-    id: "sales-dashboard",
-    category: "Backend Systems",
-    tags: ["Next.js", "Node.js", "MongoDB", "Charts.js", "D3.js"],
-    icon: "📊",
-    image: "/images/sales-dashboard.png",
-    thumbnail: "/images/thumbnails/sales-dashboard.png",
+    id: "mobile-inspection",
+    category: "Mobile Apps",
+    tags: ["React Native", "Realm", "Firebase", "Geolocation", "GitLab CI/CD", "Notifee"],
+    icon: "🌿",
+    image: "/images/thumbnails/mobile-inspection.png",
+    thumbnail: "/images/thumbnails/mobile-inspection.png",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.bluezoneinspection.app&hl=en",
     locales: {
       en: {
-        title: "Sales Dashboard & Analytics Platform",
-        description: "Built a web-based analytics platform that provides real-time sales data, user engagement metrics, and customizable dashboards for business intelligence.",
-        fullDescription: "A sophisticated data visualization platform that transforms complex sales data into actionable insights. It provides executives with real-time KPIs and deep-dive analytics into regional performance and product trends.",
-        challenges: "Aggregating and processing millions of daily transactions from multiple sources to provide real-time updates without affecting dashboard performance.",
-        solutions: "Designed a microservices architecture for data ingestion and used materialized views in the database to accelerate complex analytical queries.",
-        impact: "Improved decision-making speed for the sales team by 60% and identified untapped market opportunities worth $2M in annual revenue."
+        title: "Mobile Inspection - Smart Plantation Inspection App",
+        description: "A production-ready mobile inspection application for oil palm plantations, built on React Native 0.72 to address the real-world needs of field workers — delivering fast, accurate, and dependable inspections even in areas with limited connectivity.",
+        fullDescription: "Mobile Inspection is a production-ready mobile inspection application for oil palm plantations, built on React Native 0.72 to address the real-world needs of field workers on the ground. Born directly from the aspirations of the field team itself, the application delivers a fast, accurate, and dependable inspection experience — even in areas with limited connectivity. From block inspections and BBC (Good Fruit Recording) data entry, GPS location tracking, to real-time notifications via Firebase, everything is packaged into a single cross-platform application running seamlessly on both Android and iOS. Powered by Realm Database as its offline-first engine, the app ensures that not a single inspection record is ever lost in the field.",
+        challenges: "Building a plantation inspection application capable of operating reliably under extreme field conditions — minimal signal, a wide variety of Android devices, and the need for precise data recording with zero error tolerance. The core engineering difficulty lay in managing seamless offline-to-online data synchronization using Realm, integrating multiple heavy libraries (Firebase, Geolocation, Bottom Sheet, NetInfo) without compromising performance, and handling edge cases within the BBC and Inspection modules — such as the TBM block 0 bug at row-end and a persistent loading loop — all while ensuring zero disruption to plantation operations running 24/7.",
+        solutions: "Architected using React Native 0.72 with JavaScript (98%) as the primary language, supplemented by Java native modules (Android) for performance-critical operations. Realm 11.10.2 serves as the backbone for local data storage with automatic sync capabilities, while @react-native-community/geolocation ensures every inspection point is recorded with precise GPS coordinates. The navigation stack is built on React Navigation 6 (native-stack, bottom-tabs, top-tabs, material-tabs) for a fluid user experience. Firebase (Analytics + Messaging via Notifee) automates notifications and reporting, apisauce handles API communication with robust error handling, and NetInfo enables real-time connection status detection for seamless offline/online mode management. CI/CD is fully managed via GitLab CI/CD for fast and structured releases.",
+        impact: "From its initial version through to v6.18 (build 65), Mobile Inspection has transformed TAP-AGRI's oil palm plantation inspection process — replacing error-prone manual recording with a standardized digital system. The application empowers field teams to conduct inspections faster, delivers data to management in real-time, and resolves critical field-discovered bugs iteratively through a structured release pipeline — resulting in plantation operations that are more efficient, accurate, and truly data-driven."
       },
       id: {
-        title: "Dashboard Penjualan & Platform Analitik",
-        description: "Membangun platform analitik berbasis web yang menyediakan data penjualan waktu nyata, metrik keterlibatan pengguna, dan dashboard yang dapat disesuaikan untuk intelijen bisnis.",
-        fullDescription: "Platform visualisasi data canggih yang mengubah data penjualan kompleks menjadi wawasan yang dapat ditindaklanjuti. Memberikan eksekutif KPI waktu nyata dan analitik mendalam tentang kinerja regional dan tren produk.",
-        challenges: "Mengagregasi dan memproses jutaan transaksi harian dari berbagai sumber untuk memberikan pembaruan waktu nyata tanpa mengganggu performa dashboard.",
-        solutions: "Merancang arsitektur microservices untuk input data dan menggunakan materialized views di database untuk mempercepat query analitik yang kompleks.",
-        impact: "Meningkatkan kecepatan pengambilan keputusan tim penjualan sebesar 60% dan mengidentifikasi peluang pasar yang belum tergarap senilai $2 juta dalam pendapatan tahunan."
-      }
-    }
-  },
-  {
-    id: "content-scraping",
-    category: "Backend Systems",
-    tags: ["Node.js", "Cheerio", "Puppeteer", "MongoDB", "Redis"],
-    icon: "🕸️",
-    image: "/images/content-scraping.png",
-    thumbnail: "/images/thumbnails/content-scraping.png",
-    locales: {
-      en: {
-        title: "Automated Content Scraping System",
-        description: "Developed a backend system that automates web scraping, data extraction, and processing for competitive analysis and business intelligence.",
-        fullDescription: "A scalable industrial-grade web scraping engine capable of navigating complex JavaScript-heavy websites to extract structured data at scale. Includes robust error handling and proxy rotation.",
-        challenges: "Bypassing sophisticated anti-bot measures on competitor websites and maintaining scrapers as target website layouts frequently changed.",
-        solutions: "Implemented a dynamic proxy rotation system and a custom DSL for scraper configurations that allows for quick updates without code redeployment.",
-        impact: "Automated the collection of daily pricing data for over 500,000 products, saving the marketing team 1,000+ manual hours per month."
-      },
-      id: {
-        title: "Sistem Scraping Konten Otomatis",
-        description: "Mengembangkan sistem backend yang mengotomatiskan scraping web, ekstraksi data, dan pemrosesan untuk analisis kompetitif dan intelijen bisnis.",
-        fullDescription: "Mesin scraping web kelas industri yang skalabel, mampu menavigasi situs web berbasis JavaScript yang kompleks untuk mengekstrak data terstruktur dalam skala besar. Mencakup penanganan kesalahan yang kuat dan rotasi proxy.",
-        challenges: "Melewati langkah-langkah anti-bot yang canggih di situs web pesaing dan memelihara scraper seiring tata letak situs web target yang sering berubah.",
-        solutions: "Menerapkan sistem rotasi proxy dinamis dan DSL kustom untuk konfigurasi scraper yang memungkinkan pembaruan cepat tanpa redeploy kode.",
-        impact: "Mengotomatiskan pengumpulan data harga harian untuk lebih dari 500.000 produk, menghemat lebih dari 1.000 jam kerja manual tim pemasaran setiap bulannya."
+        title: "Mobile Inspection - Smart Plantation Inspection App",
+        description: "Aplikasi mobile inspeksi perkebunan kelapa sawit siap pakai secara production, dibangun di atas React Native 0.72 untuk menjawab kebutuhan nyata para pekerja di lapangan — menghadirkan pengalaman inspeksi yang cepat, akurat, dan dapat diandalkan bahkan di area dengan konektivitas terbatas.",
+        fullDescription: "Mobile Inspection adalah aplikasi mobile inspeksi perkebunan kelapa sawit yang siap pakai secara production, dibangun di atas React Native 0.72 untuk menjawab kebutuhan nyata para pekerja di lapangan perkebunan. Lahir dari aspirasi tim lapangan sendiri, aplikasi ini menghadirkan pengalaman inspeksi yang cepat, akurat, dan dapat diandalkan — bahkan di area dengan konektivitas terbatas. Mulai dari inspeksi blok, pencatatan BBC (Buah Baik Catat), pelacakan lokasi GPS, hingga notifikasi real-time via Firebase, semua terangkum dalam satu aplikasi cross-platform yang berjalan mulus di Android maupun iOS. Didukung Realm Database sebagai mesin offline-first, aplikasi ini memastikan tidak ada satu pun data inspeksi yang hilang di lapangan.",
+        challenges: "Membangun aplikasi inspeksi perkebunan yang mampu beroperasi secara andal di kondisi lapangan ekstrem — sinyal minim, perangkat Android beragam, dan kebutuhan pencatatan data yang presisi tanpa toleransi kesalahan. Tantangan utama terletak pada pengelolaan sinkronisasi data offline-to-online yang seamless menggunakan Realm, integrasi multi-library berat (Firebase, Geolocation, Bottom Sheet, NetInfo) tanpa mengorbankan performa, serta penanganan kasus edge pada modul BBC dan Inspeksi — seperti bug blok TBM 0 di ujung baris dan loading loop yang sempat terjadi — semuanya harus diselesaikan tanpa mengganggu operasional kebun yang berjalan 24/7.",
+        solutions: "Diarsitekturi menggunakan React Native 0.72 dengan JavaScript (98%) sebagai bahasa utama, dilengkapi native module Java (Android) untuk operasi kritis performa. Realm 11.10.2 menjadi backbone penyimpanan data lokal dengan kapabilitas sync otomatis, sementara @react-native-community/geolocation memastikan setiap titik inspeksi tercatat dengan koordinat GPS yang akurat. Stack navigasi dibangun di atas React Navigation 6 (native-stack, bottom-tabs, top-tabs, material-tabs) untuk pengalaman navigasi yang fluid. Firebase (Analytics + Messaging via Notifee) mengotomasi notifikasi dan pelaporan, apisauce menangani komunikasi API dengan error handling yang robust, dan NetInfo memungkinkan deteksi status koneksi real-time untuk manajemen mode offline/online. CI/CD dikelola penuh via GitLab CI/CD untuk release yang cepat dan terstruktur.",
+        impact: "Sejak versi perdana hingga v6.18 (build 65), Mobile Inspection telah mentransformasi proses inspeksi perkebunan kelapa sawit TAP-AGRI dari pencatatan manual yang rawan kesalahan menjadi sistem digital yang terstandarisasi. Aplikasi ini memungkinkan tim lapangan melakukan inspeksi lebih cepat, data sampai ke manajemen secara real-time, serta bug-bug kritis yang ditemukan di lapangan diselesaikan secara iteratif melalui pipeline rilis yang terstruktur — menghasilkan operasional kebun yang lebih efisien, akurat, dan berbasis data."
       }
     }
   }

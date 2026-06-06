@@ -37,7 +37,7 @@ const socialLinks = [
   { name: "LinkedIn",  href: "https://www.linkedin.com/in/aminju/",         icon: LinkedInIcon,  color: "#0a66c2" },
   { name: "GitHub",    href: "https://github.com/aminju14",                  icon: GithubIcon,    color: "#94a3b8" },
   { name: "Instagram", href: "https://www.instagram.com/aminju14",           icon: InstagramIcon, color: "#e1306c" },
-  { name: "Email",     href: "mailto:muhammad.amin1406@gmail.com",           icon: MailIcon,      color: "#22d3ee" },
+  { name: "Email",     href: "mailto:amin.workspace2026@gmail.com",           icon: MailIcon,      color: "#22d3ee" },
 ];
 
 export default function Contact() {

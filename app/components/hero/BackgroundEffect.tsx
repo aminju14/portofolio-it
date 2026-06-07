@@ -40,7 +40,7 @@ export default function BackgroundEffect() {
 }
 
 function StarField() {
-  const [stars, setStars] = useState<{ id: number; x: number; y: number; size: number; duration: number }[]>([]);
+  const [stars, setStars] = useState<{ id: number; x: number; y: number; size: number; duration: number; delay: number }[]>([]);
 
   useEffect(() => {
     const starCount = 100;
@@ -50,6 +50,7 @@ function StarField() {
       y: Math.random() * 100,
       size: Math.random() * 2 + 0.5,
       duration: Math.random() * 3 + 2,
+      delay: Math.random() * 3,
     }));
     setStars(newStars);
   }, []);
@@ -57,24 +58,18 @@ function StarField() {
   return (
     <>
       {stars.map((star) => (
-        <motion.div
+        <div
           key={star.id}
-          className="absolute bg-white rounded-full"
+          className="star"
           style={{
             left: `${star.x}%`,
             top: `${star.y}%`,
-            width: star.size,
-            height: star.size,
-          }}
-          animate={{
-            opacity: [0.1, 0.8, 0.1],
-            scale: [0.8, 1, 0.8],
-          }}
-          transition={{
-            duration: star.duration,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+            width: `${star.size}px`,
+            height: `${star.size}px`,
+            "--duration": `${star.duration}s`,
+            "--delay": `${star.delay}s`,
+            "--opacity": 0.8,
+          } as React.CSSProperties}
         />
       ))}
     </>

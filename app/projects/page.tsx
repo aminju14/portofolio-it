@@ -94,9 +94,12 @@ export default function ProjectsPage() {
                     zIndex: 2,
                     pointerEvents: "none"
                   }} />
+                  {/* ⚡ Bolt Optimization: Added lazy loading and async decoding to defer offscreen images, saving bandwidth */}
                   <img 
                     src={project.thumbnail ?? project.image} 
                     alt={content.title} 
+                    loading="lazy"
+                    decoding="async"
                     style={{ 
                       width: "100%", 
                       height: "100%", 

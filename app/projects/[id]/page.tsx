@@ -47,9 +47,12 @@ export default function ProjectDetailPage() {
           justifyContent: "center",
           background: "var(--bg-secondary)"
         }}>
+          {/* ⚡ Bolt Optimization: Added high fetchPriority to LCP hero image to load it faster and improve Core Web Vitals */}
           <img 
             src={project.image} 
             alt={content.title} 
+            fetchPriority="high"
+            decoding="async"
             style={{ 
               position: "absolute", 
               width: "100%", 
@@ -151,9 +154,12 @@ export default function ProjectDetailPage() {
                         onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.02)'; const overlay = e.currentTarget.querySelector('.img-overlay') as HTMLElement; if (overlay) overlay.style.opacity = '1'; }}
                         onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; const overlay = e.currentTarget.querySelector('.img-overlay') as HTMLElement; if (overlay) overlay.style.opacity = '0'; }}
                       >
+                        {/* ⚡ Bolt Optimization: Lazy load below-the-fold architecture image to save bandwidth */}
                         <img 
                           src={project.architectureImage} 
                           alt="System Architecture Diagram" 
+                          loading="lazy"
+                          decoding="async"
                           style={{ width: "100%", height: "auto", objectFit: "contain", mixBlendMode: "lighten", display: "block" }}
                         />
                         <div className="img-overlay" style={{ position: "absolute", inset: 0, background: "rgba(15, 23, 42, 0.4)", display: "flex", alignItems: "center", justifyContent: "center", opacity: 0, transition: "opacity 0.3s ease" }}>
@@ -237,7 +243,8 @@ export default function ProjectDetailPage() {
                        overflow: "hidden",
                        border: "1px solid var(--border-blue)"
                      }}>
-                       <img src={project.image} alt="Preview" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                       {/* ⚡ Bolt Optimization: Lazy load optional sidebar preview image */}
+                       <img src={project.image} alt="Preview" loading="lazy" decoding="async" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                      </div>
                      {project.demoUrl && (
                        <a 
@@ -343,9 +350,12 @@ export default function ProjectDetailPage() {
           <div style={{ position: "absolute", top: "30px", right: "30px", cursor: "pointer", color: "white", background: "rgba(255,255,255,0.1)", width: "45px", height: "45px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.2rem", border: "1px solid rgba(255,255,255,0.2)", transition: "background 0.2s" }} onMouseEnter={(e) => e.currentTarget.style.background = "rgba(255,255,255,0.2)"} onMouseLeave={(e) => e.currentTarget.style.background = "rgba(255,255,255,0.1)"}>
             ✕
           </div>
+          {/* ⚡ Bolt Optimization: Lazy load modal viewer image to avoid fetching it if modal is never opened */}
           <img 
             src={project.architectureImage} 
             alt="Full Architecture" 
+            loading="lazy"
+            decoding="async"
             style={{ maxWidth: "95vw", maxHeight: "95vh", objectFit: "contain", borderRadius: "12px", boxShadow: "0 25px 50px rgba(0,0,0,0.5)" }}
             onClick={(e) => e.stopPropagation()} 
           />

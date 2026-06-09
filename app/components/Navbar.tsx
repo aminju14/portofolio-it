@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
@@ -119,10 +120,14 @@ export default function Navbar() {
             boxShadow: "0 0 10px rgba(59, 130, 246, 0.2)",
           }}>
             {!imgError ? (
-              /* eslint-disable-next-line @next/next/no-img-element */
-              <img 
+              // ⚡ Bolt: Use Next.js Image component with priority for the above-the-fold profile picture
+              // to improve LCP (Largest Contentful Paint) and optimize image delivery.
+              <Image
                 src="/images/profile.png" 
                 alt="Profile" 
+                width={32}
+                height={32}
+                priority
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 onError={() => setImgError(true)}
               />

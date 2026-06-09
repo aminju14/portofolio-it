@@ -3,6 +3,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useState } from "react";
+import Image from "next/image";
 
 import { projects } from "../data/projects";
 import Link from "next/link";
@@ -94,20 +95,26 @@ export default function ProjectsPage() {
                     zIndex: 2,
                     pointerEvents: "none"
                   }} />
-                  <img 
+                  {/* ⚡ Bolt: Replace <img> with Next.js <Image> using fill and sizes
+                      for responsive, lazy-loaded images without layout shift.
+                      unoptimized={true} is used because some image URLs are external/dynamic and missing from next.config.ts */}
+                  <Image
                     src={project.thumbnail ?? project.image} 
                     alt={content.title} 
+                    fill
+                    sizes="(max-width: 768px) 100vw, 300px"
                     style={{ 
-                      width: "100%", 
-                      height: "100%", 
                       objectFit: "cover",
                       objectPosition: "center top",
                       display: "block",
                       transition: "transform 0.4s ease",
                     }}
+                    unoptimized={true}
                     onError={e => { 
                       e.currentTarget.onerror = null; // cegah infinite loop
-                      e.currentTarget.src = project.image; 
+                      const target = e.currentTarget as HTMLImageElement;
+                      target.src = project.image;
+                      target.srcset = project.image;
                     }}
                     onMouseEnter={e => (e.currentTarget.style.transform = "scale(1.05)")}
                     onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}

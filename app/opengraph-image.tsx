@@ -3,7 +3,7 @@ import { site } from "./redesign/content";
 
 // Route segment config
 export const alt =
-  "Aminju — Software Engineer · Founder of MinLabs · Creator of AgriMind";
+  "MinLabs — Software Studio · Mobile, Backend & AI Development";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -84,7 +84,7 @@ export default function OpenGraphImage() {
               maxWidth: "1000px",
             }}
           >
-            I build production mobile, backend &amp; AI systems.
+            We build production mobile, backend &amp; AI systems.
           </div>
           <div style={{ display: "flex", fontSize: "30px", color: "#3A3F47" }}>
             9+ years engineering · 20+ apps shipped · Mobile · Backend · AI
@@ -98,11 +98,11 @@ export default function OpenGraphImage() {
               {site.name}
             </div>
             <div style={{ display: "flex", fontSize: "24px", color: "#6B7280" }}>
-              Software Engineer · Founder of MinLabs · Creator of AgriMind
+              Software Studio · Mobile · Backend · AI
             </div>
           </div>
           <div style={{ display: "flex", fontSize: "24px", color: "#2563EB", fontWeight: 600 }}>
-            aminju.vercel.app
+            minlabs.id
           </div>
         </div>
       </div>

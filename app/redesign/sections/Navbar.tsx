@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import Button from "../ui/Button";
 import { nav, site } from "../content";
@@ -41,8 +42,15 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-[1200px] items-center justify-between px-6 sm:px-8">
-        <Link href="#top" className="rs-focus font-display text-[0.95rem] font-bold tracking-[-0.01em] text-ink">
-          {site.navName}
+        <Link href="#top" aria-label={`${site.name} — home`} className="rs-focus inline-flex items-center">
+          <Image
+            src="/logo-horizontal.png"
+            alt={site.name}
+            width={127}
+            height={40}
+            priority
+            className="h-7 w-auto sm:h-8"
+          />
         </Link>
 
         {/* Desktop links */}
@@ -60,14 +68,6 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-3">
-          <a
-            href="/CV_Muhammad_Amin.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rs-focus hidden text-[0.85rem] font-medium text-ink-3 transition-colors hover:text-ink sm:inline-flex"
-          >
-            CV
-          </a>
           <span className="hidden lg:inline-flex">
             <Button href={nav.cta.href} size="sm">
               {nav.cta.label}
@@ -93,9 +93,16 @@ export default function Navbar() {
             <Link
               href="/"
               onClick={() => setOpen(false)}
-              className="rs-focus font-display text-[0.95rem] font-bold tracking-[-0.01em] text-ink"
+              aria-label={`${site.name} — home`}
+              className="rs-focus inline-flex items-center"
             >
-              {site.navName}
+              <Image
+                src="/logo-horizontal.png"
+                alt={site.name}
+                width={127}
+                height={40}
+                className="h-7 w-auto"
+              />
             </Link>
             <button
               type="button"
@@ -120,17 +127,6 @@ export default function Navbar() {
                   </Link>
                 </li>
               ))}
-              <li className="border-b border-hairline">
-                <a
-                  href="/CV_Muhammad_Amin.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setOpen(false)}
-                  className="rs-focus block py-5 text-xl font-medium text-ink-3"
-                >
-                  CV
-                </a>
-              </li>
             </ul>
             <div className="mt-auto pt-8">
               <Button href={nav.cta.href} size="lg" className="w-full">

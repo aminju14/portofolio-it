@@ -22,7 +22,7 @@ export default function About() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/profile-potrait.jpeg"
-                  alt={`${site.name}, software engineer`}
+                  alt={`${site.founder}, founder of ${site.name}`}
                   className="h-full w-full object-cover"
                   loading="lazy"
                 />
@@ -61,7 +61,31 @@ export default function About() {
               </ul>
             </Reveal>
 
-            {/* AgriMind + MinLabs, folded in compactly */}
+            {/* Founder — credibility behind the studio */}
+            <Reveal delay={140} className="w-full">
+              <a
+                href={about.founder.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rs-focus group flex w-full items-start gap-4 rounded-[14px] border border-hairline bg-surface-2 px-5 py-4 transition-colors hover:bg-surface-3"
+              >
+                <div className="flex flex-1 flex-col gap-1">
+                  <span className="font-display text-sm font-semibold text-ink">
+                    {about.founder.label}
+                  </span>
+                  <span className="text-sm leading-relaxed text-ink-2">{about.founder.text}</span>
+                  <span className="mt-1 inline-flex items-center gap-1 text-sm font-medium text-brand">
+                    {about.founder.linkLabel}
+                    <ArrowUpRight
+                      size={14}
+                      className="transition-transform duration-200 group-hover:translate-x-0.5"
+                    />
+                  </span>
+                </div>
+              </a>
+            </Reveal>
+
+            {/* What we're building, folded in compactly */}
             <Reveal delay={160} className="w-full">
               <ul className="flex w-full flex-col divide-y divide-hairline rounded-[14px] border border-hairline bg-surface-2">
                 {about.building.map((b) => (

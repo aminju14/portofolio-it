@@ -13,10 +13,10 @@ const lightText = '#64748b';
 
 // Header
 doc.fontSize(28).fillColor(primaryColor).text('MUHAMMAD AMIN', { align: 'center' });
-doc.fontSize(14).fillColor(secondaryColor).text('Senior Software Engineer & System Architect', { align: 'center' });
+doc.fontSize(13).fillColor(secondaryColor).text('Software Engineer · Founder of MinLabs · Creator of AgriMind', { align: 'center' });
 doc.moveDown(0.5);
 
-doc.fontSize(10).fillColor(lightText).text('Jakarta, Indonesia | amin.workspace2026@gmail.com | linkedin.com/in/aminju | github.com/aminju14', { align: 'center' });
+doc.fontSize(10).fillColor(lightText).text('Jakarta, Indonesia | amin.workspace2026@gmail.com | linkedin.com/in/aminju | github.com/aminju14 | fastwork.id/user/aminju.san', { align: 'center' });
 doc.moveDown(1.5);
 
 // Divider
@@ -27,7 +27,7 @@ doc.moveDown(1.5);
 doc.fontSize(14).fillColor(primaryColor).text('PROFESSIONAL SUMMARY', { underline: false });
 doc.moveDown(0.5);
 doc.fontSize(10).fillColor(textColor).text(
-  'Building scalable systems from idea to production. Specializing in microservices, AI integrations, and intelligent automation that drives real business impact.',
+  'Software Engineer with 9+ years building production mobile, backend, business systems, and AI solutions — 20+ apps shipped to the Play Store and App Store. Founder of MinLabs, a software studio, and currently building AgriMind, an AI assistant for agriculture. I take software from idea to launch, and keep it running after.',
   { align: 'justify', lineGap: 3 }
 );
 doc.moveDown(1.5);
@@ -37,6 +37,16 @@ doc.fontSize(14).fillColor(primaryColor).text('EXPERIENCE');
 doc.moveDown(0.5);
 
 const experiences = [
+  {
+    title: 'Founder & Software Engineer',
+    company: 'MinLabs (Software Studio)',
+    date: '2024 - Present',
+    desc: [
+      'Founded MinLabs, a software studio building products and delivering engineering for startups and businesses.',
+      'Building AgriMind, an AI assistant for agriculture (in active development).',
+      'Deliver mobile, web, backend, and AI solutions end-to-end, from idea to production.'
+    ]
+  },
   {
     title: 'Software Engineer Section Head',
     company: 'PT Triputra Agro Persada',

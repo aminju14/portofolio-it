@@ -30,6 +30,12 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# dev server logs (temporary, generated locally)
+dev*.log
+
+# internal working docs (audits, redesign plans, specs — not for publishing)
+/_internal-docs/
+
 # env files (can opt-in for committing if needed)
 .env*
 

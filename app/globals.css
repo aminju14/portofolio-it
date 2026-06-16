@@ -1,6 +1,99 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 
+/* =========================================================================
+   2026 REDESIGN — light-first premium design system (UI-SPEC.md)
+   Tailwind v4 @theme: exposes tokens as utilities (bg-surface, text-ink, …).
+   The legacy dark tokens below (:root) are kept so the untouched /projects
+   pages keep working. New homepage components use the rs-* / @theme tokens.
+   ========================================================================= */
+@theme {
+  --color-brand: #2563eb;
+  --color-brand-hover: #1d4ed8;
+  --color-brand-press: #1e40af;
+  --color-brand-subtle: #eff4ff;
+  --color-brand-border: #d6e0ff;
+
+  --color-ink: #111418;
+  --color-ink-2: #3a3f47;
+  --color-ink-3: #6b7280;
+  --color-ink-4: #9ca3af;
+
+  --color-surface: #ffffff;
+  --color-surface-2: #f7f8fa;
+  --color-surface-3: #f0f2f5;
+  --color-hairline: #e6e8ec;
+  --color-hairline-strong: #d2d6dc;
+
+  --color-dark-bg: #111418;
+  --color-dark-surface: #1a1e24;
+  --color-on-dark: #ffffff;
+  --color-on-dark-2: #a7aeb8;
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+
+  --radius-card: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+/* Scroll-reveal + motion primitives (respect reduced-motion) */
+@keyframes rs-reveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rs-reveal {
+  opacity: 0;
+  animation: rs-reveal 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rs-reveal { animation: none; opacity: 1; }
+  html { scroll-behavior: auto; }
+}
+
+/* Focus ring — applied to all interactive elements in the new UI */
+.rs-focus:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35);
+  outline-offset: 2px;
+}
+
+/* Hero tech-stack entrance: each ROW slides in from the right, staggered */
+@keyframes rs-row-in {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.rs-row {
+  opacity: 0;
+  animation: rs-row-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--row-delay, 0ms);
+}
+
+/* Soft animated brand glow drifting behind the hero */
+@keyframes rs-glow-drift {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+  50% { transform: translate(-5%, 4%) scale(1.12); opacity: 1; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+}
+.rs-hero-glow {
+  animation: rs-glow-drift 16s ease-in-out infinite;
+}
+@keyframes rs-glow-drift-2 {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  50% { transform: translate(6%, -3%) scale(1.1); opacity: 0.85; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+}
+.rs-hero-glow-2 {
+  animation: rs-glow-drift-2 20s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rs-row { opacity: 1; animation: none; }
+  .rs-hero-glow,
+  .rs-hero-glow-2 { animation: none; }
+}
+
 :root {
   /* Backgrounds */
   --bg-space-dark: #060918;
@@ -31,15 +124,25 @@
 }
 
 * {
+  box-sizing: border-box;
+}
+
+/* Legacy pages relied on a global margin/padding zero-out. Tailwind's preflight
+   already normalizes these, but the universal `padding: 0` was overriding every
+   Tailwind spacing utility on the redesign pages (same specificity, later in
+   source order). Scope the hard reset to the legacy `.section-container` subtree
+   so the new design system's utilities work as intended. */
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   max-width: 100vw;
+  /* Anchor jumps clear the fixed navbar (redesign pages) */
+  scroll-padding-top: 88px;
 }
 
 body {

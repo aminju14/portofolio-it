@@ -69,75 +69,73 @@ Key goals:
 portofolio-it/
 ├── app/
 │   ├── api/
-│   │   └── contact/           # POST /api/contact — Nodemailer email handler
-│   ├── components/
-│   │   ├── BackToTop.tsx      # Floating back-to-top button
-│   │   ├── BuildSystems.tsx   # Build/CI systems section
-│   │   ├── Contact.tsx        # Contact form + social links
-│   │   ├── Expertise.tsx      # Skills & expertise with level indicators
-│   │   ├── Footer.tsx         # Site footer
-│   │   ├── Hero.tsx           # Landing hero section
-│   │   ├── Navbar.tsx         # Top navigation with lang switch & CV download
-│   │   ├── ProfessionalHistory.tsx  # Work timeline, education, certifications
-│   │   ├── ProjectHighlight.tsx     # Featured projects with metrics
-│   │   ├── RestuqueDemo.tsx   # Interactive demo for Restuque project
-│   │   ├── SystemArchitecture.tsx   # Tech stack architecture overview
-│   │   └── hero/              # Hero sub-components
-│   ├── context/               # React context (e.g., LanguageContext)
-│   ├── data/                  # Static data: projects, experience, skills
-│   ├── images/                # Optimized images used in the app
-│   ├── projects/              # Dynamic project detail pages ([slug])
-│   ├── globals.css            # Global styles & Tailwind base
-│   ├── layout.tsx             # Root layout with metadata & fonts
-│   └── page.tsx               # Home page — assembles all sections
-├── public/                    # Static assets (favicon, CV PDF, OG image)
-├── generate-cv.js             # Script to generate PDF CV with PDFKit
-├── next.config.ts             # Next.js configuration
-├── tailwind.config.ts         # Tailwind CSS configuration
-├── tsconfig.json              # TypeScript configuration
+│   │   └── contact/             # POST /api/contact — Nodemailer email handler
+│   ├── redesign/               # Active UI layer (2026 redesign)
+│   │   ├── sections/           # Page sections, assembled in page.tsx
+│   │   │   ├── Navbar.tsx       # Top nav with lang switch & CV download
+│   │   │   ├── Hero.tsx         # Landing hero
+│   │   │   ├── Stats.tsx        # Headline metrics
+│   │   │   ├── Services.tsx     # Services offered
+│   │   │   ├── Process.tsx      # How-I-work steps
+│   │   │   ├── FeaturedWork.tsx # Featured projects grid
+│   │   │   ├── About.tsx        # About / profile
+│   │   │   ├── Contact.tsx      # Contact form + social links
+│   │   │   ├── Footer.tsx       # Site footer
+│   │   │   ├── StickyMobileCta.tsx   # Mobile sticky CTA bar
+│   │   │   ├── NavbarProjects.tsx    # Nav variant for /projects pages
+│   │   │   ├── FooterProjects.tsx    # Footer variant for /projects pages
+│   │   │   └── RestuqueDemo.tsx      # Interactive demo for Restuque project
+│   │   ├── ui/                  # Reusable primitives (Button, Badge, Container, …)
+│   │   └── content.ts          # Site copy & structured content (single source)
+│   ├── context/                # React context (LanguageContext — EN/ID)
+│   ├── data/                   # Static data: projects, translations
+│   ├── projects/               # Project pages — list + dynamic detail ([id])
+│   ├── globals.css             # Global styles & Tailwind base
+│   ├── layout.tsx              # Root layout with metadata & fonts
+│   ├── page.tsx                # Home page — assembles redesign sections
+│   ├── opengraph-image.tsx     # Dynamic Open Graph image
+│   ├── icon.png                # Favicon
+│   ├── robots.ts               # robots.txt route
+│   └── sitemap.ts              # sitemap.xml route
+├── public/                     # Static assets (CV PDF, images, logos, SVGs)
+├── scripts/
+│   └── make-favicon.js         # Generate the app favicon
+├── generate-cv.js              # Generate the PDF CV with PDFKit
+├── next.config.ts              # Next.js configuration
+├── tsconfig.json               # TypeScript configuration
+├── eslint.config.mjs           # ESLint configuration
+├── postcss.config.mjs          # PostCSS / Tailwind configuration
 └── package.json
 ```
 
+> **Note:** The active UI lives under `app/redesign/`. Tailwind theme tokens and design
+> variables are defined in `app/globals.css` (Tailwind v4 uses CSS-based config — there is
+> no `tailwind.config.ts`).
+
 ---
 
-## 🧩 Sections & Components
+## 🧩 Page Sections
 
-### Hero
-- Full-screen landing with animated greeting, name, role, and status badge
-- CTA buttons linking to Projects and Contact sections
-- Subtle background gradient animation
+The home page (`app/page.tsx`) is assembled from sections in `app/redesign/sections/`,
+in the order: **who → proof → what you can buy → work → about → close.**
 
-### Navbar
-- Sticky top navigation with smooth scroll links
-- Language toggle (EN ↔ ID)
-- CV download button (PDF served from `/public`)
-- Mobile hamburger menu
+| Section | Purpose |
+|---|---|
+| **Navbar** | Sticky nav, smooth-scroll links, EN ↔ ID toggle, CV download |
+| **Hero** | Landing statement — who, role, and primary CTAs |
+| **Stats** | Headline metrics / proof points |
+| **Services** | What can be hired / built |
+| **Process** | How work is delivered, step by step |
+| **FeaturedWork** | Featured projects grid → links to `/projects/[id]` |
+| **About** | Profile and background |
+| **Contact** | Validated form → `POST /api/contact` → Nodemailer; social links |
+| **Footer** | Quick nav, social icons, copyright |
+| **StickyMobileCta** | Persistent call-to-action bar on mobile |
 
-### Professional History
-- Timeline-style work experience list (company, role, period, highlights)
-- Education and certification cards
-- Scroll-triggered fade-in animations
-
-### Project Highlights
-- Responsive card grid of featured projects
-- Each card shows: tech stack badges, impact metrics, and a "View Details" link
-- Links to dynamic route `/projects/[slug]` for full case studies
-
-### System Architecture
-- Visual diagram of tech stack categories: Mobile, Backend, AI/ML, Dashboards
-- Icon-based tech tiles grouped by domain
-
-### Expertise
-- Skill categories (Frontend, Backend, Mobile, DevOps, AI/ML)
-- Progress-style level indicators per skill
-
-### Contact
-- Server-validated contact form (name, email, message)
-- Submits to `POST /api/contact` → Nodemailer → sends email
-- Social links: GitHub, LinkedIn, Email
-
-### Footer
-- Quick nav links, social icons, copyright
+Project pages (`/projects` and `/projects/[id]`) use their own `NavbarProjects` and
+`FooterProjects` variants, plus `RestuqueDemo` for the interactive Restuque case study.
+Shared primitives (Button, Badge, Container, etc.) live in `app/redesign/ui/`, and all
+site copy is centralized in `app/redesign/content.ts`.
 
 ---
 
@@ -233,6 +231,7 @@ EMAIL_TO=your@email.com         # Recipient email address
 | Start | `npm run start` | Serve the production build |
 | Lint | `npm run lint` | Run ESLint |
 | Generate CV | `node generate-cv.js` | Re-generate the PDF CV in `/public` |
+| Generate favicon | `node scripts/make-favicon.js` | Re-generate `app/icon.png` |
 
 ---
 

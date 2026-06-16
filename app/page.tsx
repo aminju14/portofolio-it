@@ -10,34 +10,44 @@ import Footer from "./redesign/sections/Footer";
 import StickyMobileCta from "./redesign/sections/StickyMobileCta";
 import { site, services, work } from "./redesign/content";
 
-// JSON-LD structured data (SEO): Person + Organization + projects as CreativeWork.
+// JSON-LD structured data (SEO): Organization (studio) + founder Person + projects.
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Person",
+      "@type": "Organization",
       name: site.name,
-      alternateName: site.legalName,
       url: site.url,
-      jobTitle: "Software Engineer",
       email: site.email,
+      description:
+        "A software studio building production mobile, backend, and AI systems for startups and businesses.",
+      founder: {
+        "@type": "Person",
+        name: site.founder,
+        url: site.founderUrl,
+        jobTitle: "Software Engineer",
+        sameAs: [site.social.linkedin, site.social.github, site.social.instagram],
+      },
       sameAs: [site.social.linkedin, site.social.github, site.social.instagram],
-      worksFor: { "@type": "Organization", name: "MinLabs" },
       knowsAbout: services.items.map((s) => s.title),
     },
-    {
-      "@type": "Organization",
-      name: "MinLabs",
-      founder: { "@type": "Person", name: site.name, alternateName: site.legalName },
-      url: site.url,
-      description:
-        "A software studio founded by Aminju (Muhammad Amin), building products and delivering engineering for startups and businesses.",
-    },
     ...work.items.map((item) => ({
-      "@type": "CreativeWork",
-      name: item.title,
-      about: item.metric,
-      url: `${site.url}${item.href}`,
+      "@type": "MobileApplication",
+      name: item.name,
+      applicationCategory: item.category,
+      description: item.pitch,
+      operatingSystem: [item.android && "Android", item.ios && "iOS"]
+        .filter(Boolean)
+        .join(", "),
+      url: item.android ?? item.ios,
+      ...(item.rating && {
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: item.rating,
+          bestRating: "5",
+        },
+      }),
+      creator: { "@type": "Organization", name: site.name },
     })),
   ],
 };

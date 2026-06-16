@@ -7,12 +7,14 @@
  */
 
 export const site = {
-  name: "Aminju", // brand/display name used across the site
-  navName: "Muhammad Amin", // full name kept in the navbar only
-  legalName: "Muhammad Amin", // full/legal name for SEO & structured data
-  positioning: "Software Engineer · Founder of MinLabs · Creator of AgriMind",
-  url: "https://aminju.vercel.app",
-  email: "amin.workspace2026@gmail.com", // TODO(real-data): move to a branded domain email
+  name: "MinLabs", // brand/display name used across the site
+  navName: "MinLabs", // brand shown in the navbar
+  legalName: "MinLabs", // brand name for SEO & structured data
+  founder: "Muhammad Amin", // founder, used as credibility across the site
+  founderUrl: "https://aminju.vercel.app", // founder's personal profile / CV site
+  positioning: "A software studio building production mobile, backend & AI systems.",
+  url: "https://minlabs.id",
+  email: "amin.workspace2026@gmail.com", // TODO(real-data): move to hello@minlabs.id once email is set up
   // Public Fastwork profile — all "Fastwork" links across the site point here.
   fastworkUrl: "https://fastwork.id/user/aminju.san",
   social: {
@@ -34,16 +36,16 @@ export const stats = {
 } as const;
 
 export const hero = {
-  eyebrow: "Software Engineer · Founder of MinLabs · Creator of AgriMind",
-  headline: "I build production mobile, backend, and AI systems for startups and businesses.",
+  eyebrow: "Software Studio · Mobile · Backend · AI",
+  headline: "We build production mobile, backend, and AI systems for startups and businesses.",
   // Benefit-led, not a stat dump — the numbers live in the proof chips below.
   subheadline:
-    "From idea to launch, I design and ship software that holds up in the real world — and keep it running after.",
+    "From idea to launch, we design and ship software that holds up in the real world — and keep it running after.",
   chips: ["9+ yrs experience", "20+ apps in production", "Mobile · Backend · AI"],
-  ctaPrimary: { label: "Contact me", href: "#contact" },
-  ctaSecondary: { label: "See my work", href: "#work" },
-  // Technologies & practices I work with — drawn from real projects, then broadened.
-  techEyebrow: "Technologies I work with",
+  ctaPrimary: { label: "Contact us", href: "#contact" },
+  ctaSecondary: { label: "See our work", href: "#work" },
+  // Technologies & practices we work with — drawn from real projects, then broadened.
+  techEyebrow: "Technologies we work with",
   tech: [
     "React Native",
     "Flutter",
@@ -88,9 +90,9 @@ export type Service = {
 
 export const services = {
   eyebrow: "Services",
-  headline: "What you can hire me to build.",
+  headline: "What you can hire us to build.",
   subheadline:
-    "From idea to production — I design, build, and maintain the systems your business runs on.",
+    "From idea to production — we design, build, and maintain the systems your business runs on.",
   cta: { label: "Have a project in mind? Let's talk", href: "#contact" },
   items: [
     {
@@ -121,149 +123,144 @@ export const services = {
 } as const;
 
 export const process = {
-  eyebrow: "How I work",
+  eyebrow: "How we work",
   headline: "A simple, predictable way to work together.",
   subheadline: "No surprises — you always know what's happening and what's next.",
   steps: [
     {
       no: "01",
       title: "Discuss",
-      text: "We talk through your idea, scope, and goals. I give honest feedback and a clear plan before anything starts.",
+      text: "We talk through your idea, scope, and goals — and give honest feedback and a clear plan before anything starts.",
     },
     {
       no: "02",
       title: "Build",
-      text: "I design and develop in short, visible cycles — you see progress regularly, not just at the end.",
+      text: "We design and develop in short, visible cycles — you see progress regularly, not just at the end.",
     },
     {
       no: "03",
       title: "Ship & support",
-      text: "I deliver to production, hand over cleanly, and stay available to maintain and improve what we built.",
+      text: "We deliver to production, hand over cleanly, and stay available to maintain and improve what we built.",
     },
   ],
 } as const;
 
-export type WorkItem = {
+export type AppItem = {
   id: string;
-  title: string;
-  category: string;
-  metric: string;
-  tags: string[];
-  href: string;
-  image?: string;
-  featured?: boolean;
-  status?: string;
+  name: string; // app name
+  category: string; // short category, e.g. "Enterprise · Approval"
+  pitch: string; // one selling line — the outcome, not the tech
+  logo: string; // path to the app icon (square, rounded), e.g. "/logo-restuque.png"
+  rating?: string; // e.g. "5.0" — omit if not worth showing
+  android?: string; // Google Play URL — omit if not on Play Store
+  ios?: string; // App Store URL — omit if not on App Store
 };
 
 export const work = {
-  eyebrow: "Selected Work",
-  headline: "Real products, in production, used by real teams.",
-  subheadline: "A few systems I've designed and shipped end-to-end.",
-  cta: { label: "See all work", href: "/projects" },
-  // The headliner — shown large with a real mockup.
-  featured: {
-    id: "restuque",
-    title: "Restuque",
-    category: "Mobile Approval System",
-    metric: "5 legacy systems unified into one real-time mobile approval gateway.",
-    tags: ["React Native", "RabbitMQ", "Node.js", "PostgreSQL", "Laravel"],
-    href: "/projects/restuque",
-    image: "/images/restuque-mockup-dark.png",
-    featured: true,
-  } satisfies WorkItem,
+  eyebrow: "Apps in production",
+  headline: "Apps we've shipped, live on the stores.",
+  subheadline: "Real products, used by real teams — download them yourself.",
+  // App showcase grid. Each card links straight to the store(s) it's on.
   items: [
     {
+      id: "restuque",
+      name: "Restuque",
+      category: "Enterprise · Approval",
+      pitch: "5 legacy systems unified into one real-time mobile approval gateway.",
+      logo: "/logo-restuque.jpg",
+      rating: "5.0",
+      android: "https://play.google.com/store/apps/details?id=com.tap.restuque.app&hl=id",
+      ios: "https://apps.apple.com/id/app/restuque/id1561895835",
+    },
+    {
+      id: "one-click",
+      name: "One Click",
+      category: "Agriculture · Mobile",
+      pitch: "Real-time agricultural transactions, notifications, and analytics in one app.",
+      logo: "/logo-oneclick.png",
+      rating: "4.8",
+      android: "https://play.google.com/store/apps/details?id=com.mobiledashboard&hl=id",
+      ios: "https://apps.apple.com/id/app/one-click/id1561932836",
+    },
+    // ── Placeholders below: same shape, replace with your real apps ──
+    {
+      id: "eharvesting",
+      name: "eHarvesting",
+      category: "Agriculture · Mobile",
+      pitch: "Digitize every harvest with real-time field data and faster decisions.",
+      logo: "/logo-eharvesting.jpg",
+      rating: "4.2",
+      android: "https://play.google.com/store/apps/details?id=com.bluezoneeharvesting.app&hl=en",
+    },
+    {
       id: "mobile-inspection",
-      title: "Mobile Inspection",
-      category: "Mobile Apps",
-      metric: "Offline-first plantation inspections, in production through v6.18.",
-      tags: ["React Native", "Realm", "Firebase"],
-      href: "/projects/mobile-inspection",
+      name: "Mobile Inspection",
+      category: "Field Ops · Mobile",
+      pitch: "Offline-first plantation inspections with location tracking and seamless sync.",
+      logo: "/logo-mobileinspection.jpg",
+      rating: "4.3",
+      android: "https://play.google.com/store/apps/details?id=com.bluezoneinspection.app&hl=en",
     },
     {
-      id: "sdlc-portal",
-      title: "SDLC Portal",
-      category: "AI Systems",
-      metric: "4 tools unified into 1 portal with an AI copilot.",
-      tags: ["Next.js", "FastAPI", "Claude"],
-      href: "/projects/sdlc-portal",
+      id: "priksa",
+      name: "Priksa",
+      category: "Field Ops · Mobile",
+      pitch: "Streamline field operations with efficiency, accuracy, and seamless collaboration.",
+      logo: "/logo-priksa.png",
+      rating: "4.6",
+      android: "https://play.google.com/store/apps/details?id=com.priksa.mobile&hl=en",
     },
     {
-      id: "homin",
-      title: "Homin",
-      category: "Mobile Apps",
-      metric: "Premium Flutter rental template — 20+ screens, ~70% faster start.",
-      tags: ["Flutter", "Riverpod", "Clean Arch"],
-      href: "/projects/homin",
+      id: "gudangku",
+      name: "GudangKU",
+      category: "Warehouse · Mobile",
+      pitch: "Real-time inventory visibility, streamlined material movements, and accurate stock.",
+      logo: "/logo-gudangku.png",
+      // no rating shown for this one
+      android: "https://play.google.com/store/apps/details?id=com.tap_wms_mobile&hl=en",
     },
-  ] satisfies WorkItem[],
-} as const;
-
-export const agrimind = {
-  eyebrow: "In active development",
-  headline: "AgriMind — bringing AI to the field.",
-  subheadline:
-    "An AI assistant that helps growers make faster, smarter decisions in agriculture.",
-  // TODO(real-data): replace with the 3 real, concrete AgriMind features
-  features: [
-    "Plain-language answers to field and crop questions",
-    "Decision support from your own operational data",
-    "Built for low-connectivity, real-world field use",
-  ],
-  status: "Currently building · Follow the journey.",
-  ctaPrimary: { label: "Get early updates", href: "#contact" },
-  ctaSecondary: { label: "Follow the build", href: "https://github.com/aminju14/agri-mind-ai" },
-} as const;
-
-export const minlabs = {
-  eyebrow: "The Studio",
-  headline: "MinLabs — a software studio.",
-  subheadline:
-    "A software studio founded by Aminju, building products and delivering engineering for startups and businesses.",
-  // TODO(real-data): confirm 3rd pillar wording
-  pillars: ["Product engineering", "AI solutions", "Long-term maintenance"],
-  cta: { label: "Work with MinLabs", href: "#contact" },
+  ] satisfies AppItem[],
 } as const;
 
 export const about = {
-  eyebrow: "About",
-  headline: "I turn messy real-world problems into reliable systems.",
+  eyebrow: "About MinLabs",
+  headline: "We turn messy real-world problems into reliable systems.",
   narrative:
-    "I'm Aminju — a software engineer with 9+ years building mobile apps, backends, business systems, and AI solutions used in the field. I lead engineering at a plantation group and ship to the Play Store and App Store. I like work that actually reaches production.",
-  chips: ["Mobile", "Backend", "Business systems", "AI", "20+ apps", "Team lead"],
-  // AgriMind + MinLabs folded in as compact "what I'm building" lines.
+    "MinLabs is a software studio building mobile apps, backends, business systems, and AI solutions that run in the real world. We work in short, visible cycles and ship to the Play Store and App Store — and we like work that actually reaches production and keeps running.",
+  chips: ["Mobile", "Backend", "Business systems", "AI", "20+ apps", "Production-grade"],
+  // Founder credibility — the person behind the studio, linked to their personal profile.
+  founder: {
+    label: "Founded by Muhammad Amin",
+    text: "Software engineer with 9+ years building and leading production systems. Currently leading engineering at a plantation group.",
+    linkLabel: "See his profile",
+    href: site.founderUrl,
+  },
+  // What we're building, folded in as compact lines.
   building: [
-    {
-      label: "MinLabs",
-      text: "My software studio — building products & engineering for startups and businesses.",
-      href: site.fastworkUrl,
-    },
     {
       label: "AgriMind",
       text: "An AI assistant for agriculture, currently in active development.",
       href: "https://github.com/aminju14/agri-mind-ai",
     },
+    {
+      label: "Fastwork",
+      text: "Hire us for project work through our verified Fastwork profile.",
+      href: site.fastworkUrl,
+    },
   ],
   cta: { label: "Let's build something", href: "#contact" },
-} as const;
-
-export const finalCta = {
-  headline: "Have something to build? Let's make it real.",
-  subheadline: "Tell me about your project — I usually reply within 24 hours.",
-  ctaPrimary: { label: "Start a project", href: "#contact" },
-  ctaSecondary: { label: "View Fastwork", href: site.fastworkUrl },
 } as const;
 
 export const contact = {
   eyebrow: "Get in touch",
   headline: "Have something to build? Let's make it real.",
   subheadline:
-    "Tell me about your project — I usually reply within 24 hours. Or reach me directly below.",
+    "Tell us about your project — we usually reply within 24 hours. Or reach us directly below.",
   projectTypes: ["Mobile", "Web", "AI", "Maintenance", "Other"],
   submit: "Send message",
   submitting: "Sending…",
-  success: "Message sent — I'll get back to you within 24 hours.",
-  error: "Something went wrong. Please try again or email me directly.",
+  success: "Message sent — we'll get back to you within 24 hours.",
+  error: "Something went wrong. Please try again or email us directly.",
 } as const;
 
 export const nav = {
@@ -272,5 +269,5 @@ export const nav = {
     { label: "Work", href: "#work" },
     { label: "About", href: "#about" },
   ],
-  cta: { label: "Contact me", href: "#contact" },
+  cta: { label: "Contact us", href: "#contact" },
 } as const;

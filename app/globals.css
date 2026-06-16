@@ -2,10 +2,10 @@
 @import "tailwindcss";
 
 /* =========================================================================
-   2026 REDESIGN — light-first premium design system (UI-SPEC.md)
+   2026 REDESIGN — light-first premium design system.
    Tailwind v4 @theme: exposes tokens as utilities (bg-surface, text-ink, …).
-   The legacy dark tokens below (:root) are kept so the untouched /projects
-   pages keep working. New homepage components use the rs-* / @theme tokens.
+   Dark tokens (dark-bg, on-dark, …) power the dark sections — the app
+   showcase grid (FeaturedWork) and the footer.
    ========================================================================= */
 @theme {
   --color-brand: #2563eb;
